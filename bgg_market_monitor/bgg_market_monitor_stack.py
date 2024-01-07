@@ -1,19 +1,15 @@
-from aws_cdk import (
-    # Duration,
-    Stack,
-    # aws_sqs as sqs,
-)
+from aws_cdk import Stack, aws_events, aws_lambda, aws_sns
 from constructs import Construct
 
-class BggMarketMonitorStack(Stack):
 
+class BggMarketMonitorStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        # The code that defines your stack goes here
+        # TODO: Correct initialization of these
 
-        # example resource
-        # queue = sqs.Queue(
-        #     self, "BggMarketMonitorQueue",
-        #     visibility_timeout=Duration.seconds(300),
-        # )
+        topic = aws_sns.Topic(self, "topic")
+
+        function = aws_lambda.Function(self, "function")
+
+        schedule = aws_events.Rule(self, "event")

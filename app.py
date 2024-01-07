@@ -5,7 +5,6 @@ import aws_cdk as cdk
 
 from bgg_market_monitor.bgg_market_monitor_stack import BggMarketMonitorStack
 
-
 app = cdk.App()
 BggMarketMonitorStack(app, "BggMarketMonitorStack",
     # If you don't specify 'env', this stack will be environment-agnostic.
